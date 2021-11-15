@@ -7,6 +7,7 @@ using UnityEngine;
 public class ShadowObject : MonoBehaviour
 {
 
+    public bool isInCorrectForm;
     [SerializeField] private Transform shadowOnly;
     [SerializeField] private Transform meshOnly;
     [SerializeField] private Transform correctFormat;
@@ -20,17 +21,19 @@ public class ShadowObject : MonoBehaviour
     [Header("-----End Level Variable------")]
     [SerializeField] private float lerpRotationSpeed = 1f;
     [SerializeField] private float lerpPositionSpeed = 10f;
-
+    
     private Vector3 _initNormal;
     private Vector3 _initPosition;
-    private Vector3 _fakeLightPoint;
+    private Vector3 _lightPointOffset;
     private float _lightPointDistance;
     private void Start()
     {
+        isInCorrectForm = false;
         _initPosition = correctFormat.position;
         _lightPointDistance = Vector3.Distance(correctFormat.position,lightPoint.position);
         _initNormal = correctFormat.forward; //-(lightPoint.position - correctFormat.position).normalized;
-        
+        _lightPointOffset = lightPoint.position - correctFormat.position;
+        _lightPointOffset.z = 0;
     }
 
     public void Move(Vector3 moveDirection,float movingSpeed)
@@ -43,7 +46,7 @@ public class ShadowObject : MonoBehaviour
         shadowOnly.Translate(movingDelta,Space.World);
         meshOnly.Translate(movingDelta,Space.World);
         correctFormat.Translate(movingDelta,Space.World);
-        correctFormat.forward = -(lightPoint.position - correctFormat.position).normalized;
+        correctFormat.forward = -(lightPoint.position - correctFormat.position - _lightPointOffset).normalized;
     }
 
     public void Rotate(Vector3 rotationDir,float rotationSpeed)
@@ -68,7 +71,8 @@ public class ShadowObject : MonoBehaviour
 
     public bool CheckIfPositionCorrect()
     {
-        float distance = Vector3.Distance(shadowOnly.position, correctFormat.position);
+        float distance = Vector3.Distance(shadowOnly.position, _initPosition);
+        Debug.Log("distance" + distance);
         return distance < positionTolerance;
     }
     public IEnumerator LerpToCorrectRotation()

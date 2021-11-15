@@ -29,12 +29,12 @@ public class GamePlayControl : MonoBehaviour
     private void Rotate(ShadowObject target)
     {
         if(!Input.GetMouseButton(0) || _gameEnded) return;
-        target.Rotate(_dir * 10f,rotationSpeed);
+        target.Rotate(_dir,rotationSpeed);
     }
 
     private void Control()
     {
-        if(!Input.GetMouseButton(0) || _gameEnded) return;
+        if(!Input.GetMouseButton(0) || _objectIndex == -1) return;
         ShadowObject target = shadowObjects[_objectIndex];
         if(Input.GetKey(KeyCode.LeftControl))
             Move(target);
@@ -42,9 +42,12 @@ public class GamePlayControl : MonoBehaviour
             Rotate(target);
         if (target.CheckIfRotationCorrect() && target.CheckIfPositionCorrect())
         {
-            _gameEnded = true;
+            target.isInCorrectForm = true;
             StartCoroutine(target.LerpToCorrectRotation());
             StartCoroutine(target.LerpToCorrectPosition());
+            _objectIndex = IsAnyObjectNotInCorrectForm();
+            if(_objectIndex == -1)
+                _gameEnded = true;
         }
         
     }
@@ -58,6 +61,16 @@ public class GamePlayControl : MonoBehaviour
     {
         _dir.x = Input.GetAxis("Mouse X");
         _dir.y = Input.GetAxis("Mouse Y");
+    }
+
+    private int IsAnyObjectNotInCorrectForm()
+    {
+        for (int i = 0; i < shadowObjects.Length; i++)
+        {
+            if (!shadowObjects[i].isInCorrectForm)
+                return i;
+        }
+        return -1;
     }
     
 }
