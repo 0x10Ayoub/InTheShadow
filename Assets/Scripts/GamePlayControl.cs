@@ -43,7 +43,7 @@ public class GamePlayControl : MonoBehaviour
         if (target.CheckIfRotationCorrect() && target.CheckIfPositionCorrect())
         {
             _gameEnded = true;
-            //StartCoroutine(target.LerpToCorrectRotation());
+            StartCoroutine(target.LerpToCorrectRotation());
             StartCoroutine(target.LerpToCorrectPosition());
         }
         

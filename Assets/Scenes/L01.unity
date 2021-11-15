@@ -781,14 +781,14 @@ MonoBehaviour:
   meshOnly: {fileID: 1648657147}
   correctFormat: {fileID: 1322298590}
   lightPoint: {fileID: 869285935}
-  rotationTolerance: 20
+  rotationTolerance: 10
   positionTolerance: 1
   canMoveHorizontally: 1
   canMoveVertically: 1
   canRotateHorizontally: 1
   canRotateVertically: 1
   lerpRotationSpeed: 1
-  lerpPositionSpeed: 10
+  lerpPositionSpeed: 50
 --- !u!4 &1747233757
 Transform:
   m_ObjectHideFlags: 0

@@ -73,6 +73,7 @@ public class ShadowObject : MonoBehaviour
     }
     public IEnumerator LerpToCorrectRotation()
     {
+        correctFormat.forward = _initNormal;
         float angle = Quaternion.Angle(correctFormat.rotation, shadowOnly.rotation);
         float deltaTimeSpeed = Time.deltaTime / (angle * lerpRotationSpeed);
         float time = 0f;
@@ -95,11 +96,6 @@ public class ShadowObject : MonoBehaviour
         while (time <= 1f)
         {
             Vector3 newPos = Vector3.Lerp(shadowOnly.position, _initPosition, time);
-            Vector3 newForward = Vector3.Lerp(meshOnly.forward, _initNormal, time);
-            meshOnly.forward = newForward;
-            shadowOnly.forward = newForward;
-            correctFormat.forward = newForward;
-
             correctFormat.position = newPos;
             shadowOnly.position = newPos;
             newPos.z = meshOnly.position.z;
