@@ -796,7 +796,7 @@ MonoBehaviour:
   meshOnly: {fileID: 1539514273}
   correctFormat: {fileID: 1739593600}
   lightPoint: {fileID: 869285935}
-  rotationTolerance: 2
+  rotationTolerance: 1
   positionTolerance: 1
   canMoveHorizontally: 0
   canMoveVertically: 0
@@ -3385,6 +3385,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2750174832684938609, guid: 8f65b6890af1243ad90db44b9a7cb5cd,
         type: 3}
+      propertyPath: selectedMat
+      value: 
+      objectReference: {fileID: 2100000, guid: 04c49fccded244f69a138cd5c657fd3a, type: 2}
+    - target: {fileID: 2750174832684938609, guid: 8f65b6890af1243ad90db44b9a7cb5cd,
+        type: 3}
       propertyPath: rotationSpeed
       value: 1500
       objectReference: {fileID: 0}
@@ -3397,7 +3402,7 @@ PrefabInstance:
         type: 3}
       propertyPath: shadowObjects.Array.data[0]
       value: 
-      objectReference: {fileID: 56779199}
+      objectReference: {fileID: 606253156}
     - target: {fileID: 2750174832684938609, guid: 8f65b6890af1243ad90db44b9a7cb5cd,
         type: 3}
       propertyPath: shadowObjects.Array.data[1]
@@ -3412,7 +3417,7 @@ PrefabInstance:
         type: 3}
       propertyPath: shadowObjects.Array.data[3]
       value: 
-      objectReference: {fileID: 606253156}
+      objectReference: {fileID: 56779199}
     - target: {fileID: 2750174832684938611, guid: 8f65b6890af1243ad90db44b9a7cb5cd,
         type: 3}
       propertyPath: m_Name
