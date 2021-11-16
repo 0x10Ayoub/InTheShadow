@@ -26,6 +26,15 @@ public class ShadowObject : MonoBehaviour
     private Vector3 _initPosition;
     private Vector3 _lightPointOffset;
     private float _lightPointDistance;
+    private MeshRenderer _meshRenderer;
+    private Material _defaultMat;
+
+    private void Awake()
+    {
+        _meshRenderer = meshOnly.GetComponentInChildren<MeshRenderer>();
+        _defaultMat = _meshRenderer.material;
+    }
+
     private void Start()
     {
         isInCorrectForm = false;
@@ -79,6 +88,7 @@ public class ShadowObject : MonoBehaviour
     {
         correctFormat.forward = _initNormal;
         float angle = Quaternion.Angle(correctFormat.rotation, shadowOnly.rotation);
+        angle = angle > 2 ? angle : rotationTolerance;
         float deltaTimeSpeed = Time.deltaTime / (angle * lerpRotationSpeed);
         float time = 0f;
         while (time <= 1f)
@@ -108,8 +118,34 @@ public class ShadowObject : MonoBehaviour
             yield return null;
         }
     }
-    public bool IsPositionCorrect()
+
+    public IEnumerator LerpEmission(Material s)
     {
-        return true;
+        Color meshcolor = Color.white;
+        Color originalColor = _meshRenderer.material.color;
+        Debug.Log($" Hi {meshcolor.r} {meshcolor.g} {meshcolor.b}");
+        float time = 0f;
+        while (time < 2f)
+        {
+            float speed = Time.deltaTime ;
+            time += speed;
+            originalColor = Color.Lerp(originalColor, meshcolor, time);
+            _meshRenderer.material.SetColor("_Color", originalColor);
+            yield return null;
+        }
+        
+        yield return null;
     }
+    public void Select(Material selectMat)
+    {
+        _meshRenderer.material = selectMat;
+    }
+    
+    
+    public void DeSelect()
+    {
+        _meshRenderer.material = _defaultMat;
+    }
+
+    
 }

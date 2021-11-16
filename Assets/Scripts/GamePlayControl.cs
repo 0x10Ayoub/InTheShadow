@@ -9,21 +9,24 @@ public class GamePlayControl : MonoBehaviour
     [SerializeField] private float rotationSpeed;
     [SerializeField] private float movingSpeed;
     [SerializeField] private ShadowObject[] shadowObjects;
+    [SerializeField] private Material selectedMat;
     private bool _gameEnded;
     private int _objectIndex;
     private Vector3 _dir;
-
     private void Start()
     {
         _gameEnded = false;
         _dir = Vector3.zero;
         _objectIndex = 0;
+        ShadowObject target = shadowObjects[_objectIndex];
+        target.Select(selectedMat);
     }
 
     private void Update()
     {
         SetInput();
         Control();
+        
     }
 
     private void Rotate(ShadowObject target)
@@ -43,11 +46,14 @@ public class GamePlayControl : MonoBehaviour
         if (target.CheckIfRotationCorrect() && target.CheckIfPositionCorrect())
         {
             target.isInCorrectForm = true;
+            target.DeSelect();
             StartCoroutine(target.LerpToCorrectRotation());
             StartCoroutine(target.LerpToCorrectPosition());
             _objectIndex = IsAnyObjectNotInCorrectForm();
             if(_objectIndex == -1)
                 _gameEnded = true;
+            else
+                shadowObjects[_objectIndex].Select(selectedMat);
         }
         
     }

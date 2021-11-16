@@ -2376,7 +2376,7 @@ MonoBehaviour:
   meshOnly: {fileID: 1648657147}
   correctFormat: {fileID: 1322298590}
   lightPoint: {fileID: 869285935}
-  rotationTolerance: 10
+  rotationTolerance: 8
   positionTolerance: 1
   canMoveHorizontally: 1
   canMoveVertically: 1
