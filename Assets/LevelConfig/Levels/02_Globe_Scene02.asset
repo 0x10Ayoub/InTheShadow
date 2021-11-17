@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9775bfbaa120741408c05f3dea913ed5, type: 3}
   m_Name: 02_Globe_Scene02
   m_EditorClassIdentifier: 
-  icon: {fileID: 2800000, guid: c64367f567b6f491fbc0e8c2f8de305f, type: 3}
-  isSolved: 0
-  isUnlocked: 0
+  icon: {fileID: 2800000, guid: e1beae8c9651440b992f23898b7719e0, type: 3}
+  isSolved: 1
+  isUnlocked: 1
   isRecentlySolved: 0
-  sceneIndex: 2
+  sceneIndex: 3
