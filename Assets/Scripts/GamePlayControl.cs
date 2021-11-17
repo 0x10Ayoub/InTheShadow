@@ -106,6 +106,7 @@ public class GamePlayControl : MonoBehaviour
         {
             info.isSolved = true;
             info.isRecentlySolved = true;
+            Debug.Log("hola");
         }
     }
     private IEnumerator SetEndLevel()

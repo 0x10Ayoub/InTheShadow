@@ -10,7 +10,7 @@ public enum EScenesIndex
    TeaPos = 1,
    Elephant = 2,
    FortyTwo = 3,
-   GLobe = 4,
+   Globe = 4,
    ThirteenSeven = 5,
    selectLevelScenes=6,
    TransitionScenes=7
