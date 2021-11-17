@@ -583,6 +583,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TransitionUI
       objectReference: {fileID: 0}
+    - target: {fileID: 399204246220405888, guid: 2213cd281447a406b94b3924c80a4233,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 399204246220405892, guid: 2213cd281447a406b94b3924c80a4233,
         type: 3}
       propertyPath: m_Pivot.x
@@ -3040,6 +3045,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2750174832684938609, guid: 8f65b6890af1243ad90db44b9a7cb5cd,
+        type: 3}
+      propertyPath: selectedMat
+      value: 
+      objectReference: {fileID: 2100000, guid: 04c49fccded244f69a138cd5c657fd3a, type: 2}
     - target: {fileID: 2750174832684938609, guid: 8f65b6890af1243ad90db44b9a7cb5cd,
         type: 3}
       propertyPath: rotationSpeed

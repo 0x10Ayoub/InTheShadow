@@ -2,10 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GamePlayControl : MonoBehaviour
 {
 
+    [SerializeField] private Text msgText;
     [SerializeField] private float rotationSpeed;
     [SerializeField] private float movingSpeed;
     [SerializeField] private ShadowObject[] shadowObjects;
@@ -13,11 +15,13 @@ public class GamePlayControl : MonoBehaviour
     private bool _gameEnded;
     private int _objectIndex;
     private Vector3 _dir;
+    private bool isMsgVisible;
     private void Start()
     {
         _gameEnded = false;
         _dir = Vector3.zero;
         _objectIndex = 0;
+        isMsgVisible = false;
         ShadowObject target = shadowObjects[_objectIndex];
         target.Select(selectedMat);
     }
@@ -77,6 +81,12 @@ public class GamePlayControl : MonoBehaviour
                 return i;
         }
         return -1;
+    }
+
+    public void SetHint(string hint)
+    {
+        isMsgVisible = !isMsgVisible;
+        msgText.text = isMsgVisible ? hint : "";
     }
     
 }

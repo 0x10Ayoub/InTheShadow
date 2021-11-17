@@ -20,11 +20,6 @@ public class LevelManager : MonoBehaviour
 
    public Camera main;
    [SerializeField] private LevelTransitionData leveldata;
-   public void LoadLevel()
-   {
-      
-   }
-
    private void Update()
    {
       SelectLevel();
