@@ -1251,6 +1251,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TransitionUI
       objectReference: {fileID: 0}
+    - target: {fileID: 399204246220405888, guid: 2213cd281447a406b94b3924c80a4233,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 399204246220405892, guid: 2213cd281447a406b94b3924c80a4233,
         type: 3}
       propertyPath: m_Pivot.x

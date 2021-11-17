@@ -119,24 +119,7 @@ public class ShadowObject : MonoBehaviour
             yield return null;
         }
     }
-
-    public IEnumerator LerpEmission(Material s)
-    {
-        Color meshcolor = Color.white;
-        Color originalColor = _meshRenderer.material.color;
-        Debug.Log($" Hi {meshcolor.r} {meshcolor.g} {meshcolor.b}");
-        float time = 0f;
-        while (time < 2f)
-        {
-            float speed = Time.deltaTime ;
-            time += speed;
-            originalColor = Color.Lerp(originalColor, meshcolor, time);
-            _meshRenderer.material.SetColor("_Color", originalColor);
-            yield return null;
-        }
-        
-        yield return null;
-    }
+    
     public void Select(Material selectMat)
     {
         _meshRenderer.material = selectMat;

@@ -12,6 +12,12 @@ public class GamePlayControl : MonoBehaviour
     [SerializeField] private float movingSpeed;
     [SerializeField] private ShadowObject[] shadowObjects;
     [SerializeField] private Material selectedMat;
+    [SerializeField] private ParticleSystem particlesEffect;
+    [SerializeField] private AudioSource sfx;
+    [SerializeField] private AudioSource ambient;
+    [SerializeField] private UIManager uiManger;
+    [SerializeField] private LevelInfo info;
+
     private bool _gameEnded;
     private int _objectIndex;
     private Vector3 _dir;
@@ -54,17 +60,22 @@ public class GamePlayControl : MonoBehaviour
             StartCoroutine(target.LerpToCorrectRotation());
             StartCoroutine(target.LerpToCorrectPosition());
             _objectIndex = IsAnyObjectNotInCorrectForm();
-            if(_objectIndex == -1)
+            if (_objectIndex == -1)
+            {
                 _gameEnded = true;
+                StartCoroutine(SetEndLevel());
+            }
             else
+            {
                 shadowObjects[_objectIndex].Select(selectedMat);
+            }
         }
         
     }
     private void Move(ShadowObject target)
     {
         if(!Input.GetMouseButton(0) || _gameEnded) return;
-        target.Move(_dir,movingSpeed);
+            target.Move(_dir,movingSpeed);
     }
 
     private void SetInput()
@@ -87,6 +98,23 @@ public class GamePlayControl : MonoBehaviour
     {
         isMsgVisible = !isMsgVisible;
         msgText.text = isMsgVisible ? hint : "";
+    }
+
+    public void SetLevelInfo()
+    {
+        if (!info.isSolved)
+        {
+            info.isSolved = true;
+            info.isRecentlySolved = true;
+        }
+    }
+    private IEnumerator SetEndLevel()
+    {
+        SetLevelInfo();
+        particlesEffect.Play();
+        sfx.PlayOneShot(sfx.clip);
+        yield return new WaitForSeconds(2);
+        uiManger.Pause();
     }
     
 }

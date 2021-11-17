@@ -35,6 +35,7 @@ public class LevelManager : MonoBehaviour
          LevelItem levelInfo = hit.transform.GetComponent<LevelItem>();
          if (levelInfo != null)
          {
+            if(!levelInfo.info.isUnlocked) return;
             leveldata.SceneToLoad = (int)levelInfo.info.sceneIndex;
             StartCoroutine(LoadLevelAsyn((int)EScenesIndex.TransitionScenes));
          }
@@ -45,6 +46,7 @@ public class LevelManager : MonoBehaviour
       leveldata.SceneToLoad = ScenesIndex;
       StartCoroutine(LoadLevelAsyn((int)EScenesIndex.TransitionScenes));
    }
+   
    IEnumerator LoadLevelAsyn(int levelIndex)
    {
       AsyncOperation op = SceneManager.LoadSceneAsync(levelIndex);

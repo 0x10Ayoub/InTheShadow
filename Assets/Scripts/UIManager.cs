@@ -2,17 +2,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+public enum UIElementEnum
+{
+    GamePlay = 0,
+    Paused = 1
+}
+
 public class UIManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    private GameObject[] UIElement;
+
+    public void Pause()
     {
-        
+        SetCorrectUi(UIElementEnum.Paused);
+    }
+    
+    public void Play()
+    {
+        SetCorrectUi(UIElementEnum.GamePlay);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void SetCorrectUi(UIElementEnum UIEnum)
     {
-        
+        int indexFfUi = (int) UIEnum;
+        for (int i = 0; i < UIElement.Length; i++)
+        {
+            UIElement[i].SetActive(indexFfUi == i);
+        }
     }
 }
