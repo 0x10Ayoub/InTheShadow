@@ -30,7 +30,7 @@ public class IconLevelManager : MonoBehaviour
             levelIcon.transform.SetParent(transform);
             levelIcon.transform.localPosition = offest;
             LevelInfo levelInfo = levelInfos[i];
-            bool caneSetCamPos = cameraSet && ((levelInfo.isUnlocked && !levelInfo.isSolved)
+            bool caneSetCamPos = cameraSet && ((levelInfo.isUnlocked && !levelInfo.isSolved) 
                                                || levelInfo.isRecentlySolved);
             if (caneSetCamPos)
             {
@@ -47,12 +47,12 @@ public class IconLevelManager : MonoBehaviour
                 isRecentlySolved = true;
             }else if (isRecentlySolved)
             {
-                levelInfo.icon = unlockedIcon;
+                levelIcon.icon = unlockedIcon;
                 levelInfo.isUnlocked = true;
                 isRecentlySolved = false;
                 recentlySolvedEvent.Invoke();
             }
-            SetIcon(levelInfos[i], levelIcon);
+            SetIcon(levelInfo, levelIcon);
             offest += Vector3.right * 5f;
         }
     }

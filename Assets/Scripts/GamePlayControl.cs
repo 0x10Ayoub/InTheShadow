@@ -105,9 +105,10 @@ public class GamePlayControl : MonoBehaviour
         if (!info.isSolved)
         {
             info.isSolved = true;
+            info.isUnlocked = true;
             info.isRecentlySolved = true;
-            Debug.Log("hola");
         }
+        Debug.Log(JsonUtility.ToJson(info,true));
     }
     private IEnumerator SetEndLevel()
     {

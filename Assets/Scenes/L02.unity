@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.1802837, g: 0.22571404, b: 0.30692273, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -193,7 +193,7 @@ PrefabInstance:
     - target: {fileID: 1237217365, guid: d996caf039aea4b209aa2b6471e37ac4, type: 3}
       propertyPath: main
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 963194227}
     - target: {fileID: 925226374246513057, guid: d996caf039aea4b209aa2b6471e37ac4,
         type: 3}
       propertyPath: m_Name
@@ -328,7 +328,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 608887190}
     - target: {fileID: 925226375196600091, guid: d996caf039aea4b209aa2b6471e37ac4,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -337,7 +337,7 @@ PrefabInstance:
     - target: {fileID: 925226375196600091, guid: d996caf039aea4b209aa2b6471e37ac4,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: The Zoooooooooo
+      value: A number of two equals new opportunity
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d996caf039aea4b209aa2b6471e37ac4, type: 3}
@@ -600,6 +600,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &608887190 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2750174832684938609, guid: 8f65b6890af1243ad90db44b9a7cb5cd,
+    type: 3}
+  m_PrefabInstance: {fileID: 2750174832374666042}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b16ec9dc5d1bce846ab4f03036cc34ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1370,6 +1382,18 @@ AudioSource:
     type: 3}
   m_PrefabInstance: {fileID: 1386261600}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1404381772 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 925226374226478064, guid: d996caf039aea4b209aa2b6471e37ac4,
+    type: 3}
+  m_PrefabInstance: {fileID: 135199472}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1450523605
 GameObject:
   m_ObjectHideFlags: 0
@@ -2063,6 +2087,11 @@ PrefabInstance:
       propertyPath: ambient
       value: 
       objectReference: {fileID: 205646159}
+    - target: {fileID: 2750174832684938609, guid: 8f65b6890af1243ad90db44b9a7cb5cd,
+        type: 3}
+      propertyPath: msgText
+      value: 
+      objectReference: {fileID: 1404381772}
     - target: {fileID: 2750174832684938609, guid: 8f65b6890af1243ad90db44b9a7cb5cd,
         type: 3}
       propertyPath: uiManger

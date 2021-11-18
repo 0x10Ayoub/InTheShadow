@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!114 &11400000
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 32
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9775bfbaa120741408c05f3dea913ed5, type: 3}
-  m_Name: 02_Globe_Scene02
+  m_Name: 03_Globe_Scene04
   m_EditorClassIdentifier: 
-  icon: {fileID: 2800000, guid: e1beae8c9651440b992f23898b7719e0, type: 3}
-  isSolved: 1
-  isUnlocked: 1
+  icon: {fileID: 2800000, guid: b2f0f0d2e62894864b49e1b2fb5cff21, type: 3}
+  isSolved: 0
+  isUnlocked: 0
   isRecentlySolved: 0
-  sceneIndex: 3
+  sceneIndex: 4

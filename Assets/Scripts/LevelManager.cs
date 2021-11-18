@@ -12,7 +12,7 @@ public enum EScenesIndex
    FortyTwo = 3,
    Globe = 4,
    ThirteenSeven = 5,
-   selectLevelScenes=6,
+   SelectLevelScenes=6,
    TransitionScenes=7
 }
 public class LevelManager : MonoBehaviour

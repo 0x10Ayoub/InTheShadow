@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!114 &11400000
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 32
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 00_TeaPot_Scene00
   m_EditorClassIdentifier: 
   icon: {fileID: 2800000, guid: 7d9f6897836ea482a92ee0854ae3a889, type: 3}
-  isSolved: 1
+  isSolved: 0
   isUnlocked: 1
   isRecentlySolved: 0
   sceneIndex: 1
