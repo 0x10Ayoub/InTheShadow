@@ -25,6 +25,7 @@ public class LevelManager : MonoBehaviour
       SelectLevel();
    }
 
+
    private void SelectLevel()
    {
       if (!Input.GetMouseButtonDown(0)) return;
@@ -35,7 +36,7 @@ public class LevelManager : MonoBehaviour
          LevelItem levelInfo = hit.transform.GetComponent<LevelItem>();
          if (levelInfo != null)
          {
-            if(!levelInfo.info.isUnlocked) return;
+            if(!levelInfo.info.isUnlocked && !leveldata.isTestMode) return;
             leveldata.SceneToLoad = (int)levelInfo.info.sceneIndex;
             StartCoroutine(LoadLevelAsyn((int)EScenesIndex.TransitionScenes));
          }
@@ -44,6 +45,20 @@ public class LevelManager : MonoBehaviour
    public void LoadTargetLevel(int ScenesIndex)
    {
       leveldata.SceneToLoad = ScenesIndex;
+      StartCoroutine(LoadLevelAsyn((int)EScenesIndex.TransitionScenes));
+   }
+
+   public void LoadTestMode()
+   {
+      leveldata.SceneToLoad = (int)EScenesIndex.SelectLevelScenes;
+      leveldata.isTestMode = true;
+      StartCoroutine(LoadLevelAsyn((int)EScenesIndex.TransitionScenes));
+   }
+   
+   public void LoadPlayMode()
+   {
+      leveldata.SceneToLoad = (int)EScenesIndex.SelectLevelScenes;
+      leveldata.isTestMode = false;
       StartCoroutine(LoadLevelAsyn((int)EScenesIndex.TransitionScenes));
    }
    

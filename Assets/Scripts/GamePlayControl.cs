@@ -17,6 +17,7 @@ public class GamePlayControl : MonoBehaviour
     [SerializeField] private AudioSource ambient;
     [SerializeField] private UIManager uiManger;
     [SerializeField] private LevelInfo info;
+    [SerializeField] private LevelTransitionData _data;
 
     private bool _gameEnded;
     private int _objectIndex;
@@ -102,7 +103,7 @@ public class GamePlayControl : MonoBehaviour
 
     public void SetLevelInfo()
     {
-        if (!info.isSolved)
+        if (!info.isSolved && !_data.isTestMode)
         {
             info.isSolved = true;
             info.isUnlocked = true;

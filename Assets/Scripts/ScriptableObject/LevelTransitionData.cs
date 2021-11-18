@@ -7,9 +7,15 @@ using UnityEngine;
 public class LevelTransitionData : ScriptableObject
 {
     public int SceneToLoad;
+    public bool isTestMode;
 
     private void OnDestroy()
     {
         SceneToLoad = 0;
+    }
+
+    private void OnEnable()
+    {
+        hideFlags = HideFlags.DontUnloadUnusedAsset;
     }
 }

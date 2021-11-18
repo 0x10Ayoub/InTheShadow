@@ -15,10 +15,18 @@ public class IconLevelManager : MonoBehaviour
     [SerializeField] private UnityEvent recentlySolvedEvent;
     [SerializeField] private Transform came;
     [SerializeField] private Transform light;
+    [SerializeField] private LevelTransitionData leveldata;
 
-
+    private LevelManager _levelManager;
     private bool cameraSet;
     private void Start()
+    {
+        _levelManager = GetComponent<LevelManager>();
+        SpawnIcons();
+    }
+
+
+    private void SpawnIcons()
     {
         cameraSet = true;
         Vector3 offest = Vector3.zero;
@@ -32,15 +40,7 @@ public class IconLevelManager : MonoBehaviour
             LevelInfo levelInfo = levelInfos[i];
             bool caneSetCamPos = cameraSet && ((levelInfo.isUnlocked && !levelInfo.isSolved) 
                                                || levelInfo.isRecentlySolved);
-            if (caneSetCamPos)
-            {
-                tmpPos = levelIcon.transform.position;
-                tmpPos.z = came.position.z;
-                came.position = tmpPos;
-                tmpPos.z = light.position.z;
-                light.position = tmpPos;
-                cameraSet = false;
-            }
+            SetCameraAndLightPosition(caneSetCamPos,levelIcon);
             if (levelInfo.isRecentlySolved)
             {
                 levelInfo.isRecentlySolved = false;
@@ -56,11 +56,24 @@ public class IconLevelManager : MonoBehaviour
             offest += Vector3.right * 5f;
         }
     }
-    
+
+    private void SetCameraAndLightPosition(bool caneSetCamPos,LevelItem levelIcon)
+    {
+        Vector3 tmpPos;
+        if (caneSetCamPos)
+        {
+            tmpPos = levelIcon.transform.position;
+            tmpPos.z = came.position.z;
+            came.position = tmpPos;
+            tmpPos.z = light.position.z;
+            light.position = tmpPos;
+            cameraSet = false;
+        }  
+    }
     private void SetIcon(LevelInfo levelInfo,LevelItem levelItem)
     {
         levelItem.info = levelInfo;
-        if (levelInfo.isSolved)
+        if (levelInfo.isSolved || leveldata.isTestMode)
         {
             levelItem.icon = levelInfo.icon;
             levelItem.mat = solvedMat;
