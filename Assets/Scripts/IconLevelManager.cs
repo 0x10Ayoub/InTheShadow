@@ -31,7 +31,6 @@ public class IconLevelManager : MonoBehaviour
         cameraSet = true;
         Vector3 offest = Vector3.zero;
         bool isRecentlySolved = false;
-        Vector3 tmpPos;
         for (int i = 0; i < levelInfos.Length; i++)
         {
             var levelIcon = Instantiate(prefab, transform.position , prefab.transform.rotation);
@@ -41,15 +40,17 @@ public class IconLevelManager : MonoBehaviour
             bool caneSetCamPos = cameraSet && ((levelInfo.isUnlocked && !levelInfo.isSolved) 
                                                || levelInfo.isRecentlySolved);
             SetCameraAndLightPosition(caneSetCamPos,levelIcon);
-            if (levelInfo.isRecentlySolved)
+            if (levelInfo.isRecentlySolved && !leveldata.isTestMode)
             {
                 levelInfo.isRecentlySolved = false;
                 isRecentlySolved = true;
-            }else if (isRecentlySolved)
+                levelInfo.Save();
+            }else if (isRecentlySolved && !leveldata.isTestMode)
             {
                 levelIcon.icon = unlockedIcon;
                 levelInfo.isUnlocked = true;
                 isRecentlySolved = false;
+                levelInfo.Save();
                 recentlySolvedEvent.Invoke();
             }
             SetIcon(levelInfo, levelIcon);
@@ -60,6 +61,7 @@ public class IconLevelManager : MonoBehaviour
     private void SetCameraAndLightPosition(bool caneSetCamPos,LevelItem levelIcon)
     {
         Vector3 tmpPos;
+        if(leveldata.isTestMode) return;
         if (caneSetCamPos)
         {
             tmpPos = levelIcon.transform.position;

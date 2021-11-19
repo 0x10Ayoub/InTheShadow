@@ -82,7 +82,6 @@ public class ShadowObject : MonoBehaviour
     public bool CheckIfPositionCorrect()
     {
         float distance = Vector3.Distance(shadowOnly.position, _initPosition);
-        Debug.Log("distance" + distance);
         return distance < positionTolerance;
     }
     public IEnumerator LerpToCorrectRotation()
