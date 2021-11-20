@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.1802837, g: 0.22571404, b: 0.30692273, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1452,6 +1452,10 @@ PrefabInstance:
       propertyPath: main
       value: 
       objectReference: {fileID: 963194227}
+    - target: {fileID: 1283743151, guid: d996caf039aea4b209aa2b6471e37ac4, type: 3}
+      propertyPath: m_Transition
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 925226374246513057, guid: d996caf039aea4b209aa2b6471e37ac4,
         type: 3}
       propertyPath: m_Name
@@ -1562,6 +1566,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 925226374370555764, guid: d996caf039aea4b209aa2b6471e37ac4,
+        type: 3}
+      propertyPath: m_Transition
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 925226374558945055, guid: d996caf039aea4b209aa2b6471e37ac4,
+        type: 3}
+      propertyPath: m_Transition
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 925226374558945055, guid: d996caf039aea4b209aa2b6471e37ac4,
         type: 3}
       propertyPath: m_Colors.m_HighlightedColor.b
@@ -1577,10 +1591,20 @@ PrefabInstance:
       propertyPath: m_Colors.m_HighlightedColor.r
       value: 0.8396226
       objectReference: {fileID: 0}
+    - target: {fileID: 925226374853970937, guid: d996caf039aea4b209aa2b6471e37ac4,
+        type: 3}
+      propertyPath: m_Transition
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 925226374864542316, guid: d996caf039aea4b209aa2b6471e37ac4,
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 925226375196600091, guid: d996caf039aea4b209aa2b6471e37ac4,
+        type: 3}
+      propertyPath: m_Transition
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 925226375196600091, guid: d996caf039aea4b209aa2b6471e37ac4,
         type: 3}
