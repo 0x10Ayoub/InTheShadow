@@ -19,8 +19,8 @@ public class AmbientMusicManager : MonoBehaviour
 
     public void SetMuteState()
     {
-        buttonTxt.text = isMuted ? "Unmute" : "Mute";
-        _audioSource.enabled = !isMuted;
+        buttonTxt.text = isMuted ? "Mute": "Unmute" ;
+        _audioSource.enabled = isMuted;
         isMuted = !isMuted;
     }
 
