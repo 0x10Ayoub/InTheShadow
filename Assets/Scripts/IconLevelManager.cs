@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 public class IconLevelManager : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class IconLevelManager : MonoBehaviour
     [SerializeField] private LevelInfo[] levelInfos;
     [SerializeField] private UnityEvent recentlySolvedEvent;
     [SerializeField] private Transform came;
-    [SerializeField] private Transform light;
+    [FormerlySerializedAs("light")] [SerializeField] private Transform lightTransform;
     [SerializeField] private LevelTransitionData leveldata;
 
     private LevelManager _levelManager;
@@ -67,8 +68,8 @@ public class IconLevelManager : MonoBehaviour
             tmpPos = levelIcon.transform.position;
             tmpPos.z = came.position.z;
             came.position = tmpPos;
-            tmpPos.z = light.position.z;
-            light.position = tmpPos;
+            tmpPos.z = lightTransform.position.z;
+            lightTransform.position = tmpPos;
             cameraSet = false;
         }  
     }

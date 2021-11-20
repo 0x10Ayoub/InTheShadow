@@ -3,11 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class MoveCamera : MonoBehaviour
 {
     [SerializeField] private Camera cam;
-    [SerializeField] private Transform light;
+    [FormerlySerializedAs("light")] [SerializeField] private Transform lightTransform;
     [Range(10, 50)] public int moveSpeed;
     [Range(1,5)]
     public int timeFactor;
@@ -27,19 +28,19 @@ public class MoveCamera : MonoBehaviour
         Vector3 camNewPos = _camTransform.position + moveOffset;
         if(camNewPos.x <-1 || camNewPos.x >20) return;
         cam.transform.position = camNewPos;
-        light.transform.position += moveOffset;
+        lightTransform.transform.position += moveOffset;
     }
 
     IEnumerator LerpToPosition()
     {
         float time = 0f;
         newPosition = cam.transform.position + Vector3.right * 5;
-        Vector3 lightNewPos = light.position + Vector3.right * 7 ;
+        Vector3 lightNewPos = lightTransform.position + Vector3.right * 7 ;
         while (time <= 1)
         {
             time += Time.deltaTime / timeFactor;
             _camTransform.position = Vector3.Lerp(_camTransform.position, newPosition, Time.deltaTime / timeFactor);
-            light.position = Vector3.Lerp( light.position, lightNewPos, Time.deltaTime / timeFactor);
+            lightTransform.position = Vector3.Lerp( lightTransform.position, lightNewPos, Time.deltaTime / timeFactor);
             yield return null;
         }
     }
