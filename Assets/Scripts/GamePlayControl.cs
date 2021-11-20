@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class GamePlayControl : MonoBehaviour
@@ -18,6 +19,8 @@ public class GamePlayControl : MonoBehaviour
     [SerializeField] private UIManager uiManger;
     [SerializeField] private LevelInfo info;
     [SerializeField] private LevelTransitionData _data;
+
+    [SerializeField] private UnityEvent Endleve;
 
     private bool _gameEnded;
     private int _objectIndex;
@@ -115,6 +118,7 @@ public class GamePlayControl : MonoBehaviour
     private IEnumerator SetEndLevel()
     {
         SetLevelInfo();
+        Endleve.Invoke();
         particlesEffect.Play();
         sfx.PlayOneShot(sfx.clip);
         yield return new WaitForSeconds(2);
