@@ -38,11 +38,21 @@ public class GamePlayControl : MonoBehaviour
 
     private void Update()
     {
+        SelectObject();
         SetInput();
         Control();
         
     }
 
+    private void SelectObject()
+    {
+        if (!Input.GetMouseButtonDown(1) || _gameEnded || _objectIndex == -1) return;
+        ShadowObject target = shadowObjects[_objectIndex];
+        target.DeSelect();
+        _objectIndex = (_objectIndex + 1) % shadowObjects.Length;
+        target = shadowObjects[_objectIndex];
+        target.Select(selectedMat);
+    }
     private void Rotate(ShadowObject target)
     {
         if(!Input.GetMouseButton(0) || _gameEnded) return;
